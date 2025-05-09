@@ -13,9 +13,9 @@ load_dotenv()
 st.set_page_config(page_title = "KG RAG", layout = "centered")
 
 # streamlit title
-st.title("Knowledge Graph RAG")
+st.title("Knowledge Graph RAG for AeroCraft Operation Manual")
 
-# function to extract resume data
+# function to extract document data
 def extract_doc_data(document):
     doc = fitz.open(stream = document, filetype="pdf")
     extracted_data = ""
@@ -59,7 +59,7 @@ elif document and "graph_built" in st.session_state:
 kg = GraphRAG(neo4j_url, neo4j_username, neo4j_password)
 
 # input box for user query
-query = st.text_input("Ask a question related to the document:")
+query = st.text_input("Ask a question related to the manual:")
 
 # process after clicking the button
 if st.button("Submit") and query:
