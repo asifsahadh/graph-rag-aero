@@ -15,5 +15,5 @@ Once the entities are identified, the relationships need to be established. The 
 4. functions from **kg_handler.py** & **utils.py** <br><br>
 Now, the user can ask questions based on the manual. The question is converted to cypher query using a function that prompts an LLM to do so. Once extracted, this query is run over the created graph in neo4j. The extracted entities and relationships, if available, are saved into a variable for context.
 
-5. **query_llm.py** <br><br>
+5. **groq_llm.py** <br><br>
 Finally, an LLM is prompted with both this context generated from the graph, and the original user query.
