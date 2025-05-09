@@ -1,4 +1,4 @@
-# function to turn raw cypher based json to a string format that llm understands
+# function to turn raw cypher based json to a string format for llm to understands
 def build_context(results):
     if not results:
         return "No relevant knowledge found."

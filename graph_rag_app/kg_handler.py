@@ -1,11 +1,11 @@
 from neo4j import GraphDatabase
-from groq import Groq  # official sdk for gtoq
+from groq import Groq  # official sdk for groq
 import os
 
 class GraphRAG:
     def __init__(self, neo4j_url, neo4j_username, neo4j_password):
         # initialize neo4j driver
-        self.driver = GraphDatabase.driver(neo4j_url, auth=(neo4j_username, neo4j_password))
+        self.driver = GraphDatabase.driver(neo4j_url, auth = (neo4j_username, neo4j_password))
 
         # initialize groq client
         self.llm = Groq(api_key = os.getenv("GROQ_API_KEY"))

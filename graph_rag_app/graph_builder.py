@@ -3,15 +3,15 @@ from neo4j import GraphDatabase
 
 class GraphBuilder:
     def __init__(self, uri, user, password):
-        self.driver = GraphDatabase.driver(uri, auth=(user, password))
+        self.driver = GraphDatabase.driver(uri, auth = (user, password))
         self.nlp = spacy.load("en_core_web_trf")  # load spacy english model (gpu)
 
     def close(self):
         self.driver.close()
 
-    def run_query(self, query, params=None):
+    def run_query(self, query, params = None):
         with self.driver.session() as session:
-            session.run(query, params or {})
+            session.run(query, params or {}) # empty dictionary if none
 
     def extract_entities(self, text):
         doc = self.nlp(text)
@@ -24,7 +24,7 @@ class GraphBuilder:
         warnings = set()
 
         # loop through the entities found by spacy NER
-        for ent in doc.ents:
+        for ent in doc.ents: # get named entities found by spacy
             if ent.label_ == "ORG":  # assuming systems are organizations, for example
                 systems.add(ent.text)
             elif ent.label_ == "PRODUCT":  # assuming components are labeled as products
