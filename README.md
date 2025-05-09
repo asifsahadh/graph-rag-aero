@@ -1,4 +1,5 @@
-## Knowledge Graph RAG for AeroCraft Operation Manual – Code Explanation and Limitations
+## Knowledge Graph RAG for AeroCraft Operation Manual  
+#### Description of Primary Elements from Code, including Limitations of Model.
 
 1. app.py - 'extract_doc_data' function  
 The initial step is uploading of the operations manual. Next, the PyMuPDF (fitz) library extracts the text from the document. This is stored inside a variable. Multiple newlines are converted into a single newline using regex.
